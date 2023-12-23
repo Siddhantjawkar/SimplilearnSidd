@@ -1,0 +1,20 @@
+public class Test_9 {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		
+		WebElement txt_email=driver.findElement(By.xpath("//input[@name='email']"));
+		Actions act=new Actions(driver);
+		act.keyDown(txt_email, Keys.SHIFT).sendKeys("test").keyUp(Keys.SHIFT).build().perform();
+		
+		Thread.sleep(3000);
+		act.keyDown(txt_email, Keys.SHIFT).sendKeys("sidd").keyUp(Keys.SHIFT).build().perform();
+		
+
+	}
+
+}
